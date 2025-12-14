@@ -13,6 +13,6 @@ class sortable-list extends Component
 
     public function render()
     {
-        return view('ld-sortable-list::components.sortable-list');
+        return view('sb-sortable-list::components.sortable-list');
     }
 }

@@ -26,7 +26,7 @@
 import { ref } from 'vue';
 
 export default {
-  name: 'LdSortableList',
+  name: 'SbSortableList',
   props: {
     items: { type: Array, default: () => [] }
   },

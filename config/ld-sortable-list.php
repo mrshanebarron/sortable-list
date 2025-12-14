@@ -1,5 +1,5 @@
 <?php
 
 return [
-    // Default settings for ld-sortable-list
+    // Default settings for sb-sortable-list
 ];

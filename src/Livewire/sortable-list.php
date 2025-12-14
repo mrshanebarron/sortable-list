@@ -8,6 +8,6 @@ class sortable-list extends Component
 {
     public function render()
     {
-        return view('ld-sortable-list::livewire.sortable-list');
+        return view('sb-sortable-list::livewire.sortable-list');
     }
 }

@@ -11,14 +11,14 @@ class sortable-listServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ld-sortable-list.php', 'ld-sortable-list');
+        $this->mergeConfigFrom(__DIR__ . '/../config/sb-sortable-list.php', 'sb-sortable-list');
     }
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ld-sortable-list');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sb-sortable-list');
 
-        Livewire::component('ld-sortable-list', sortable-list::class);
+        Livewire::component('sb-sortable-list', sortable-list::class);
 
         $this->loadViewComponentsAs('ld', [
             Bladesortable-list::class,
@@ -26,12 +26,12 @@ class sortable-listServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/ld-sortable-list.php' => config_path('ld-sortable-list.php'),
-            ], 'ld-sortable-list-config');
+                __DIR__ . '/../config/sb-sortable-list.php' => config_path('sb-sortable-list.php'),
+            ], 'sb-sortable-list-config');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/ld-sortable-list'),
-            ], 'ld-sortable-list-views');
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/sb-sortable-list'),
+            ], 'sb-sortable-list-views');
         }
     }
 }
