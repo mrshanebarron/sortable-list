@@ -1,0 +1,12 @@
+{
+    "name": "@laraveldesign/sortable-list",
+    "version": "1.0.0",
+    "description": "Drag and drop sortable list for Laravel",
+    "main": "resources/js/vue/index.js",
+    "module": "resources/js/vue/index.js",
+    "files": ["resources/js/vue"],
+    "keywords": ["laravel", "sortable", "drag", "drop", "livewire", "vue"],
+    "author": "Shane Barron <mrshanebarron@gmail.com>",
+    "license": "MIT",
+    "peerDependencies": {"vue": "^3.0.0"}
+}
