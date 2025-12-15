@@ -1,10 +1,10 @@
 <?php
 
-namespace MrShaneBarron\sortable-list\View\Components;
+namespace MrShaneBarron\SortableList\View\Components;
 
 use Illuminate\View\Component;
 
-class sortable-list extends Component
+class SortableList extends Component
 {
     public function __construct()
     {

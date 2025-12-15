@@ -4,8 +4,7 @@ namespace MrShaneBarron\SortableList;
 
 use Illuminate\Support\ServiceProvider;
 use MrShaneBarron\SortableList\Livewire\SortableList;
-use MrShaneBarron\SortableList\View\Components\sortable-list as BladeSortableList;
-use Livewire\Livewire;
+use MrShaneBarron\SortableList\View\Components\SortableList as BladeSortableList;
 
 class SortableListServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,9 @@ class SortableListServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sb-sortable-list');
 
-        Livewire::component('sb-sortable-list', sortable-list::class);
+        if (class_exists(\Livewire\Livewire::class)) {
+            \Livewire\Livewire::component('sb-sortable-list', SortableList::class);
+        }
 
         $this->loadViewComponentsAs('ld', [
             BladeSortableList::class,
