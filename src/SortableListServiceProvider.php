@@ -1,13 +1,13 @@
 <?php
 
-namespace MrShaneBarron\sortable-list;
+namespace MrShaneBarron\SortableList;
 
 use Illuminate\Support\ServiceProvider;
-use MrShaneBarron\sortable-list\Livewire\sortable-list;
-use MrShaneBarron\sortable-list\View\Components\sortable-list as Bladesortable-list;
+use MrShaneBarron\SortableList\Livewire\SortableList;
+use MrShaneBarron\SortableList\View\Components\sortable-list as BladeSortableList;
 use Livewire\Livewire;
 
-class sortable-listServiceProvider extends ServiceProvider
+class SortableListServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
@@ -21,7 +21,7 @@ class sortable-listServiceProvider extends ServiceProvider
         Livewire::component('sb-sortable-list', sortable-list::class);
 
         $this->loadViewComponentsAs('ld', [
-            Bladesortable-list::class,
+            BladeSortableList::class,
         ]);
 
         if ($this->app->runningInConsole()) {
