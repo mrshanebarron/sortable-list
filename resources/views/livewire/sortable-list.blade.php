@@ -28,27 +28,26 @@
             this.dragOverIndex = null;
         }
     }"
-    @class([
-        'space-y-2' => $direction === 'vertical',
-        'flex gap-2' => $direction === 'horizontal',
-    ])
+    style="{{ $this->direction === 'horizontal' ? 'display: flex; gap: 8px;' : 'display: flex; flex-direction: column; gap: 8px;' }}"
 >
-    @foreach($items as $index => $item)
+    @foreach($this->items as $index => $item)
         <div
             draggable="true"
             @dragstart="handleDragStart($event, {{ $index }})"
             @dragover="handleDragOver($event, {{ $index }})"
             @drop="handleDrop($event, {{ $index }})"
             @dragend="handleDragEnd()"
-            :class="{ 'opacity-50': draggedIndex === {{ $index }}, 'border-t-2 border-blue-500': dragOverIndex === {{ $index }} && draggedIndex !== {{ $index }} }"
-            class="flex items-center gap-3 p-3 bg-white border rounded-lg cursor-move hover:shadow-sm transition-all"
+            :style="draggedIndex === {{ $index }} ? 'opacity: 0.5;' : (dragOverIndex === {{ $index }} && draggedIndex !== {{ $index }} ? 'border-top: 2px solid #3b82f6;' : '')"
+            style="display: flex; align-items: center; gap: 12px; padding: 12px; background: white; border: 1px solid #e5e7eb; border-radius: 8px; cursor: move; transition: box-shadow 0.15s;"
+            onmouseover="this.style.boxShadow='0 1px 2px rgba(0,0,0,0.05)'"
+            onmouseout="this.style.boxShadow='none'"
         >
-            @if($handle)
-                <span class="text-gray-400 cursor-grab">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+            @if($this->handle)
+                <span style="color: #9ca3af; cursor: grab;">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
                 </span>
             @endif
-            <span class="flex-1">{{ is_array($item) ? ($item['label'] ?? $item['title'] ?? '') : $item }}</span>
+            <span style="flex: 1;">{{ is_array($item) ? ($item['label'] ?? $item['title'] ?? '') : $item }}</span>
         </div>
     @endforeach
 </div>
